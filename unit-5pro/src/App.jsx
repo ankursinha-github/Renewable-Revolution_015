@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import InvoiceForm from "./components/InvoceForm";
+import InvoiceList from "./components/InvoiceList";
+import { fetchPaymentStatus } from "./api";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [invoices, setInvoices] = useState([]);
+  const [transactionStatus, setTransactionStatus] = useState("");
+  const addInvoice = (invoice) => {
+    setInvoices((prevInvoices) => [...prevInvoices, invoice]);
+  };
+  const updateInvoiceStatus = async (id) => {
+    setTransactionStatus("pending");
+
+    try {
+      const { status } = await fetchPaymentStatus(id);
+      setInvoices((prevInvoices) =>
+        prevInvoices.map((invoice) =>
+          invoice.id === id ? { ...invoice, status } : invoice
+        )
+      );
+      setTransactionStatus("success");
+    } catch (error) {
+      console.error("Error updating payment status:", error);
+      setTransactionStatus("failed");
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Payment Tracker</h1>
+      <InvoiceForm addInvoice={addInvoice} />
+      <InvoiceList invoices={invoices} updateInvoiceStatus={updateInvoiceStatus} />
+      {transactionStatus === "pending" && <p>Transaction in progress...</p>}
+      {transactionStatus === "success" && <p>Transaction successful!</p>}
+      {transactionStatus === "failed" && <p>Transaction failed. Please try again.</p>}
+    </div>
+  );
 }
 
-export default App
+export default App;
