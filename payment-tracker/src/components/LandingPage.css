@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav_landing {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_landing img {
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+}
+
+.nav_landing button {
+    color: red;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    background-color: white;
+    border: 1px solid gray;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+}
+
+.landing {
+    background-color: whitesmoke;
+}
+
+.first_page, .landing_header {
+    padding: 1rem 3rem;
+}
+
+.landing_header h4 {
+    font-weight: 400;
+    color: red;
+}
+
+.first_page, .third_page {
+    padding: 4rem 10rem;
+    text-align: center;
+}
+
+.first_page h1 {
+    width: 70%;
+    margin: auto;
+}
+
+.first_page p {
+    margin: 2rem auto;
+    width: 80%;
+    color: rgb(68, 65, 65);
+}
+
+.first_page button {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background-color: rgb(14, 103, 236);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.landing .feedback_rating {
+    font-size: 1.2rem;
+}
+
+.landing .feedback_rating span {
+    color: gold;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: rgb(14, 103, 236);
+}
+
+.second_page img {
+    width: 100%;
+}
+
+.third_page .invoicing_options {
+    display: flex;
+    justify-content: space-around;
+    margin: 4rem 0;
+}
+
+.third_page .invoicing_options .option {
+    border: 1px solid rgb(170, 166, 166);
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 0.3rem;
+    background-color: white;
+}
+
+.option_details {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option_details i {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+.option .option_desc {
+    color: rgb(71, 68, 68);
+    margin-top: 1rem;
+}
