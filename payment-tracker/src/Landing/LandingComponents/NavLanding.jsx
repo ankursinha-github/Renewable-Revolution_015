@@ -1,13 +1,14 @@
 import SiteLogo from "../images/SiteLogo.jpeg"
-import "../LandingPage.css"
+import "./LandingPage.css"
+import { Link } from "react-router-dom"
 
 export default function NavLanding () {
     return (
         <div className="nav_landing">
             <img src={SiteLogo} alt="website logo" />
             <div className="auth_options">
-                <button>Login</button>
-                <button>Signup</button>
+                <Link to="/login"><button>Login</button></Link>
+                <Link to="/signup"><button>Signup</button></Link>
             </div>
         </div>
     )
