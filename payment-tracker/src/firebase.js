@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyDi84OXV8hKagWpr_leQTpksuxjD-Vdnus",
     authDomain: "react-task-management-b3baf.firebaseapp.com",
@@ -16,3 +19,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getDatabase(app);
+
+export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword };

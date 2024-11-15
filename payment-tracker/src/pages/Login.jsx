@@ -1,4 +1,4 @@
-// src/pages/Login.js
+src/pages/Login.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate("/dashboard"); // Redirect to the dashboard after login
+      navigate("/dashboard"); 
     } catch (error) {
       console.error("Failed to log in", error);
     }
@@ -30,3 +30,5 @@ function Login() {
 }
 
 export default Login;
+
+
