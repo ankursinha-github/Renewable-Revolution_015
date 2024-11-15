@@ -1,4 +1,3 @@
-// src/pages/Dashboard.js
 import { useAuth } from '../context/AuthContext.jsx';
 import InvoiceForm from '../components/InvoiceForm.jsx';
 import CustomerForm from '../components/CustomerForm.jsx';
