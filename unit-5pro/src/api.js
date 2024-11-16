@@ -1,4 +1,4 @@
-export const fetchPaymentStatus = async (invoiceId) => {
+export const fetchPaymentStatus =  async (invoiceId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const statuses = ["paid", "unpaid", "overdue"];
