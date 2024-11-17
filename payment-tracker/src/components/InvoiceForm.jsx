@@ -65,7 +65,7 @@ function InvoiceForm() {
           value={invoiceData.customer}
           onChange={(e) => setInvoiceData({ ...invoiceData, customer: e.target.value })}
           placeholder="Customer Name"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full text-black p-2 border border-gray-300 rounded-md"
           required
         />
       </div>
@@ -76,7 +76,7 @@ function InvoiceForm() {
           value={invoiceData.email}
           onChange={(e) => setInvoiceData({ ...invoiceData, email: e.target.value })}
           placeholder="Customer Email"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full p-2 border text-black border-gray-300 rounded-md"
           required
         />
       </div>
@@ -87,7 +87,7 @@ function InvoiceForm() {
           value={invoiceData.phone}
           onChange={(e) => setInvoiceData({ ...invoiceData, phone: e.target.value })}
           placeholder="Customer Phone"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full p-2 border text-black border-gray-300 rounded-md"
           required
         />
       </div>
@@ -97,7 +97,7 @@ function InvoiceForm() {
           value={invoiceData.address}
           onChange={(e) => setInvoiceData({ ...invoiceData, address: e.target.value })}
           placeholder="Customer Address"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full p-2 border text-black border-gray-300 rounded-md"
           required
         />
       </div>
@@ -108,7 +108,7 @@ function InvoiceForm() {
           value={invoiceData.dueDate}
           onChange={(e) => setInvoiceData({ ...invoiceData, dueDate: e.target.value })}
           placeholder="Due Date"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full p-2 border text-black border-gray-300 rounded-md"
           required
         />
       </div>
@@ -121,7 +121,7 @@ function InvoiceForm() {
             value={item.description}
             onChange={(e) => handleItemChange(index, "description", e.target.value)}
             placeholder="Item Description"
-            className="flex-1 p-2 border border-gray-300 rounded-md"
+            className="flex-1 p-2 border text-black border-gray-300 rounded-md"
             required
           />
           <input
@@ -129,7 +129,7 @@ function InvoiceForm() {
             value={item.quantity}
             onChange={(e) => handleItemChange(index, "quantity", e.target.value)}
             placeholder="Quantity"
-            className="w-20 p-2 border border-gray-300 rounded-md"
+            className="w-20 p-2 border text-black border-gray-300 rounded-md"
             required
           />
           <input
@@ -137,7 +137,7 @@ function InvoiceForm() {
             value={item.price}
             onChange={(e) => handleItemChange(index, "price", e.target.value)}
             placeholder="Price"
-            className="w-24 p-2 border border-gray-300 rounded-md"
+            className="w-24 p-2 border text-black border-gray-300 rounded-md"
             required
           />
           {index > 0 && (
@@ -173,7 +173,7 @@ function InvoiceForm() {
           value={invoiceData.paid}
           onChange={(e) => setInvoiceData({ ...invoiceData, paid: Number(e.target.value) })}
           placeholder="Amount Paid"
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full  text-black p-2 border border-gray-300 rounded-md"
           required
         />
       </div>
