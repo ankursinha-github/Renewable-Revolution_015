@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,13 +53,12 @@ function Sidebar() {
             <i className="bx bx-user text-teal-400"></i>
             <span>Account</span>
           </a>
-          <a
-            href="#"
+          <Link to={"/companyform"}
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-cog text-teal-400"></i>
             <span>Settings</span>
-          </a>
+          </Link>
           <a
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"

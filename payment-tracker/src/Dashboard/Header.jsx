@@ -1,6 +1,23 @@
 import React from "react";
+import { useAuth } from "../context/AuthContext"; // Assuming you have an AuthContext set up
+import md5 from "md5";
 
 function Header() {
+  const { currentUser, logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      window.location.reload(); // Redirect or reset the state
+    } catch (error) {
+      console.error("Logout failed: ", error);
+    }
+  };
+
+  function getGravatarUrl  (email)  {
+    const hash = md5(email.trim().toLowerCase());
+    return `https://www.gravatar.com/avatar/${hash}`;
+  };
   return (
     <header className="p-4 flex justify-between items-center bg-gray-800">
       <div className="flex items-center gap-2 text-teal-400 cursor-pointer">
@@ -19,13 +36,28 @@ function Header() {
       </div>
 
       {/* User Info (Avatar and Name) */}
-      <div className="flex items-center gap-2">
-        <span className="text-gray-300 font-medium">Nandkishore Parmar</span>
-        <img
-          src="https://nandkishoreparmar.netlify.app/assets/img/profile-pic.png"
-          alt="User Avatar"
-          className="w-10 h-10 rounded-full border border-gray-600"
-        />
+      <div className="flex items-center gap-4">
+        {currentUser && (
+          <>
+            <span className="text-gray-300 font-medium">
+              {currentUser.displayName || currentUser.email}
+            </span>
+            <img
+              src={
+                getGravatarUrl(currentUser.email) ||
+                "https://via.placeholder.com/40?text=Avatar" // Fallback if no photoURL
+              }
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border border-gray-600"
+            />
+          </>
+        )}
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
+        >
+          Logout
+        </button>
       </div>
     </header>
   );
