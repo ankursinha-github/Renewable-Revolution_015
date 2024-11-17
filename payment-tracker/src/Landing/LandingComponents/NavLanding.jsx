@@ -1,4 +1,4 @@
-import SiteLogo from "../images/SiteLogo.jpeg"
+import SiteLogo from "../images/Logo.webp"
 import "./LandingPage.css"
 import { Link } from "react-router-dom"
 
