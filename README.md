@@ -51,7 +51,7 @@ The **Invoice and Payment Tracker** is a web-based React application designed to
 ---
 
 # Folder Structure
-
+<pre>
 Renewable-Revolution_015/
 ├── payment-tracker/
 │   ├── node_modules/                 # Project dependencies
@@ -91,7 +91,7 @@ Renewable-Revolution_015/
 │   ├── tailwind.config.js            # Tailwind CSS configuration
 │   ├── vite.config.js                # Vite configuration
 ├── README.md                         # Main project documentation
-
+</pre>
 ---
 
 # Screenshots
