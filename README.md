@@ -61,3 +61,32 @@ The **Invoice and Payment Tracker** is a web-based React application designed to
 1. Clone the repository:
    ```bash
    git clone https://github.com/ankursinha-github/Renewable-Revolution_015.git
+2. Navigate to the project directory
+   ```bash
+   cd invoice-tracker
+3. Install dependencies:
+   ```bash
+   npm install
+4. Start the development server
+   ```bash
+   npm run dev
+
+## Future Enhancements
+
+- **Recurring Invoices**: Automate the generation of recurring invoices.
+- **Multi-Currency Support**: Handle invoices in different currencies.
+- **Analytics**: Provide detailed financial analytics and reports.
+- **Mobile App**: Develop a mobile version for better accessibility.
+
+## Contributing
+# We welcome contributions! Please follow these steps:
+
+- Fork the repository.
+- Create a feature branch: git checkout -b feature-name.
+- Commit changes: git commit -m 'Add a feature'.
+- Push to the branch: git push origin feature-name.
+- Submit a pull request.
+
+## Acknowledgments
+Thanks to our team and contributors for making this project a reality. 💡
+Feel free to modify it to fit your project's specific requirements!
