@@ -1,14 +1,16 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext"; // Assuming you have an AuthContext set up
 import md5 from "md5";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate=useNavigate();
   const { currentUser, logout } = useAuth();
 
   const handleLogout = async () => {
     try {
       await logout();
-      window.location.reload(); // Redirect or reset the state
+      navigate("/"); // Redirect or reset the state
     } catch (error) {
       console.error("Logout failed: ", error);
     }

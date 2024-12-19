@@ -1,6 +1,7 @@
 import { send } from "emailjs-com";
 
-function SendInvoiceButton({ invoice },{company}) {
+function SendInvoiceButton({ invoice ,company}) {
+ 
   const sendInvoice = () => {
     // Check if all necessary fields exist
     if (!invoice || !invoice.id || !invoice.customer || !invoice.email || !invoice.totalAmount) {

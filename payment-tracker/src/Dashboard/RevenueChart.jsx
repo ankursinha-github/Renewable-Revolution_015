@@ -5,30 +5,26 @@ import { getDatabase, ref, onValue } from "firebase/database";
 function RevenueChart() {
   const chartRef = useRef();
   const [chartData, setChartData] = useState({ total: 0, paid: 0, unpaid: 0 });
+  const [state,setState]=useState(false);
 
   useEffect(() => {
-    const db = getDatabase();
-    const invoicesRef = ref(db, "invoices");
-
-    // Fetch data from Firebase
-    onValue(invoicesRef, (snapshot) => {
-      const data = snapshot.val();
-      let total = 0;
-      let paid = 0;
-      let unpaid = 0;
-
-      for (const id in data) {
-        const invoice = data[id];
-        total += invoice.totalAmount || 0;
-        paid += invoice.paid || 0;
-        unpaid += invoice.due || 0;
-      }
-
-      setChartData({ total, paid, unpaid });
-    });
-  }, []);
+    fetch("https://react-task-management-b3baf-default-rtdb.firebaseio.com/invoices.json")
+    .then(res=>res.json())
+    .then(data=>{
+      let total=0;
+      let paid=0;
+      let unpaid=0;
+      Object.values(data).forEach((ele)=>{
+        total+=ele.totalAmount;
+        paid+=ele.paid;
+        unpaid+=ele.unpaid;
+      })
+      setChartData({total,paid,unpaid});
+    })
+  },[state]);
 
   useEffect(() => {
+    console.log(chartData);
     if (!chartRef.current) return;
 
     const ctx = chartRef.current.getContext("2d");
@@ -60,6 +56,7 @@ function RevenueChart() {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
         scales: {
           y: {
             beginAtZero: true,
@@ -81,9 +78,12 @@ function RevenueChart() {
   }, [chartData]);
 
   return (
-    <div className="p-6 bg-gray-800 rounded-lg shadow-md">
+    <div className="p-6 bg-gray-800 rounded-lg shadow-md flex justify-center items-center flex-col">
       <h2 className="text-xl text-white font-bold mb-4">Revenue Overview</h2>
-      <canvas ref={chartRef}></canvas>
+      <div className="w-3/4 max-w-md">
+        <canvas ref={chartRef} style={{ display: "block" }}></canvas>
+      </div>
+      <button onClick={()=>{setState(pre=>!pre)}}>Refresh</button>
     </div>
   );
 }

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import {ComponentContext} from "../DashboardMain"
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
+
+  const { setCurrentComponent } = useContext(ComponentContext);
 
   return (
     <div className="flex h-screen">
@@ -25,47 +28,47 @@ function Sidebar() {
 
         {/* Sidebar Navigation */}
         <nav className="space-y-4 mt-8">
-          <a
+          <button onClick={() => setCurrentComponent('paymenttracker')}
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-home-alt text-teal-400"></i>
             <span>Dashboard</span>
-          </a>
-          <a
+          </button>
+          <button onClick={() => setCurrentComponent('revenueChart')}
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-line-chart text-teal-400"></i>
             <span>Analytics</span>
-          </a>
-          <a
+          </button>
+          <button onClick={() => setCurrentComponent('invoice')}
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-wallet text-teal-400"></i>
             <span>Transactions</span>
-          </a>
-          <a
+          </button>
+          <button
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-user text-teal-400"></i>
             <span>Account</span>
-          </a>
-          <Link to={"/companyform"}
+          </button>
+          <button onClick={() => setCurrentComponent('company')}
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-cog text-teal-400"></i>
             <span>Settings</span>
-          </Link>
-          <a
+          </button>
+          <button
             href="#"
             className="flex items-center space-x-3 text-gray-300 p-3 rounded-md hover:bg-gray-700"
           >
             <i className="bx bx-help-circle text-teal-400"></i>
             <span>Help</span>
-          </a>
+          </button>
         </nav>
       </aside>
 

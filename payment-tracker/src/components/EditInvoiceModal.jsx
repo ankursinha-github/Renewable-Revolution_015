@@ -31,14 +31,14 @@ function EditInvoiceModal({ invoice, onClose }) {
             value={formData.customer}
             onChange={handleChange}
             placeholder="Customer"
-            className="mb-2 p-2 rounded-md w-full"
+            className="mb-2 p-2 rounded-md w-full text-black"
           />
           <input
             name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            className="mb-2 p-2 rounded-md w-full"
+            className="mb-2 p-2 rounded-md w-full text-black"
           />
           {/* Add other fields */}
           <button
