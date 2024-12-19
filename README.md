@@ -6,7 +6,7 @@ The **Invoice and Payment Tracker** is a web-based React application designed to
 
 ---
 
-# Deployed Link : https://renewable-revolution-015.netlify.app/
+# Deployed Link : https://masai-invoice-generator.netlify.app/
 
 ---
 
